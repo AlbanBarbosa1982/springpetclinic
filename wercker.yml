@@ -5,7 +5,7 @@ box:
     - "8080"
 
 # defining the dev pipeline
-dev --expose-ports:
+dev:
   steps:
     # A step that executes `spring-petclinic bootRun` command
     - script:
@@ -14,7 +14,7 @@ dev --expose-ports:
         ./mvnw spring-boot:run
 
 # Build definition
-build --expose-ports:
+build:
   # The steps that will be executed on build
   steps:
     # A step that executes `spring-petclinic` command
