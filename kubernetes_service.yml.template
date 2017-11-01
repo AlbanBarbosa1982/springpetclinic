@@ -1,7 +1,9 @@
-# The step above should leave us with a Kubernetes service and deployment yml files.
-# We'll create a directory to move them to.
-- script:
-    name: Prepare Kubernetes files
-    code: |
-      mkdir $WERCKER_OUTPUT_DIR/kubernetes
-      mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
+kind: Service
+apiVersion: v1
+metadata:
+  name: pet-clinic
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9376
