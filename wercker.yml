@@ -33,7 +33,7 @@ autoaddgoss:
       code: |
         goss autoadd port 8080
 
-# autoadd goss
+# test goss
 testgoss:
   steps:
     # A step that goss test if port 8080 is open 
