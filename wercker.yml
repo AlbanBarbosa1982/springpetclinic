@@ -7,7 +7,7 @@ box:
 # defining the dev pipeline
 dev:
   steps:
-    # A step that executes `gradle bootRun` command
+    # A step that executes `spring-petclinic` command
     - script:
       name: dev spring-petclinic
       code: |
