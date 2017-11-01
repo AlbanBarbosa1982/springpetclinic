@@ -26,7 +26,7 @@ installgoss:
  # change permissions on goss
  permissions:
    steps:
-    # A step changes permissions` 
+     # A step changes permissions` 
      - script:
        name: chmod files
        code: |
