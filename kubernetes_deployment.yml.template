@@ -1,0 +1,28 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pet-clinic
+  labels:
+    commit: ${WERCKER_GIT_COMMIT}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pet-clinic
+  template:
+    metadata:
+      labels:
+        app: pet-clinic
+        commit: ${WERCKER_GIT_COMMIT}
+    spec:
+      containers:
+      - name: pet-clinic
+        image: ${DOCKERHUB_REPO}:${WERCKER_GIT_COMMIT}
+        ports:
+        - name: pet-clinic
+          containerPort: 8080
+          protocol: TCP
