@@ -15,7 +15,7 @@ build:
           ./mvnw spring-boot:run &
 
 # install goss
-goss:
+installgoss:
   steps:
     # A step that installs goss` 
     - script:
@@ -25,7 +25,7 @@ goss:
 chmod +rx /usr/local/bin/goss
 
 # autoadd goss
-goss:
+autoaddgoss:
   steps:
     # A step that autoadds goss tests port 8080` 
     - script:
@@ -34,7 +34,7 @@ goss:
         goss autoadd port 8080
 
 # autoadd goss
-goss:
+testgoss:
   steps:
     # A step that goss test if port 8080 is open 
     - script:
