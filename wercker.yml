@@ -23,14 +23,15 @@ installgoss:
       code: |
         curl -fsSL https://goss.rocks/install | sh 
         
-# dockerhub
-dockerhub:
+deploy:
   steps:
-    # A step that pushes to dockerhub 
-    - script:
-      name: push to dockerhub
-      code: |
-        echo "push to dockerhub"
+    - internal/docker-push:
+        username: $albanbarbosa
+        password: $Japan35
+        tag: hey een wachtwoord
+        ports: "5000"
+        repository: albanbarbosa/pet-clinic
+        registry: https://registry.hub.docker.com
         
         
 # k8s
