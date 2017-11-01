@@ -31,8 +31,6 @@ deploy:
         tag: hey een wachtwoord
         ports: "5000"
         repository: albanbarbosa/pet-clinic
-        registry: https://registry.hub.docker.com
-        
         
 # k8s
 k8s:
