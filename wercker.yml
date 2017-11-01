@@ -12,7 +12,7 @@ build:
     - script:
         name: run spring-petclinic
         code: |
-          ./mvnw spring-boot:run 
+          ./mvnw spring-boot:run & bg
 
 # defining smoke test
 test:
