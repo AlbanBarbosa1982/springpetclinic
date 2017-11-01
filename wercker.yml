@@ -44,18 +44,18 @@ testgoss:
 # dockerhub
 dockerhub:
   steps:
-    # A step that goss test if port 8080 is open 
+    # A step that pushes to dockerhub 
     - script:
-      name: test port 8080
+      name: push to dockerhub
       code: |
         
         
 # k8s
 k8s:
   steps:
-    # A step that goss test if port 8080 is open 
+    # A step that deploy to k8s 
     - script:
-      name: test port 8080
+      name: deploy k8s
       code: |
         
 
