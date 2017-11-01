@@ -1,0 +1,24 @@
+# docker box definition
+box:
+  id: openjdk
+  ports:
+    - "8080"
+
+# defining the dev pipeline
+dev:
+  steps:
+    # A step that executes `spring-petclinic bootRun` command
+    - script:
+      name: dev spring-petclinic
+      code: |
+        ./mvnw spring-boot:run
+
+# Build definition
+build:
+  # The steps that will be executed on build
+  steps:
+    # A step that executes `spring-petclinic` command
+    - script:
+        name: run spring-petclinic
+        code: |
+          ./mvnw spring-boot:run --full-stacktrace -q --project-cache-dir=$WERCKER_CACHE_DIR build
