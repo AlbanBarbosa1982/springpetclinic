@@ -30,7 +30,7 @@ permissions:
     - script:
       name: chmod files
       code: |
-        chmod +rx /usr/local/bin/goss
+        goss
 
 # autoadd goss
 autoaddgoss:
