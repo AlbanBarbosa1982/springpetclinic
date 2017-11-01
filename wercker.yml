@@ -23,24 +23,6 @@ installgoss:
       code: |
         curl -fsSL https://goss.rocks/install | sh 
         
-# autoadd goss
-autoaddgoss:
-  steps:
-    # A step that autoadds goss tests port 8080` 
-    - script:
-      name: autoadd port 8080
-      code: |
-        docker exec weby /goss/goss autoadd port 8080
-
-# test goss
-testgoss:
-  steps:
-    # A step that goss test if port 8080 is open 
-    - script:
-      name: test port 8080
-      code: |
-        docker exec weby /goss/goss validate
-
 # dockerhub
 dockerhub:
   steps:
@@ -48,6 +30,7 @@ dockerhub:
     - script:
       name: push to dockerhub
       code: |
+        echo "push to dockerhub"
         
         
 # k8s
@@ -57,6 +40,7 @@ k8s:
     - script:
       name: deploy k8s
       code: |
+        echo "deploy to k8s"
         
 
 
