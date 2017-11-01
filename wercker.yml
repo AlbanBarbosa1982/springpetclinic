@@ -4,15 +4,6 @@ box:
   ports:
     - "8080"
 
-# defining the dev pipeline
-dev:
-  steps:
-    # A step that executes `spring-petclinic` command
-    - script:
-      name: dev spring-petclinic
-      code: |
-        ./mvnw spring-boot:run
-        
 # Build definition
 build:
   # The steps that will be executed on build
@@ -22,3 +13,12 @@ build:
         name: run spring-petclinic
         code: |
           ./mvnw spring-boot:run 
+
+# defining smoke test
+test:
+  steps:
+    # A step that tests `spring-petclinic` 
+    - script:
+      name: test spring-petclinic
+      code: |
+        curl http://localhost:8080
