@@ -23,15 +23,6 @@ installgoss:
       code: |
         curl -fsSL https://goss.rocks/install | sh 
         
-# change permissions on goss
-permissions:
-  steps:
-    # A step changes permissions` 
-    - script:
-      name: chmod files
-      code: |
-        goss
-
 # autoadd goss
 autoaddgoss:
   steps:
