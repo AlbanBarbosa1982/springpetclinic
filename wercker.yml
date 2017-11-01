@@ -22,7 +22,15 @@ installgoss:
       name: Install goos test framework
       code: |
         curl -L https://github.com/aelsabbahy/goss/releases/download/_VERSION_/goss-linux-amd64 -o /usr/local/bin/goss
-chmod +rx /usr/local/bin/goss
+
+# change permissions
+permissions:
+  steps:
+    # A step changes permissions` 
+    - script:
+      name: chmod files
+      code: |
+        chmod +rx /usr/local/bin/goss
 
 # autoadd goss
 autoaddgoss:
