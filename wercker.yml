@@ -5,13 +5,13 @@ box:
     - "5000"
 
 # defining the dev pipeline
-dev:
-  steps:
-    # A step that executes `spring-petclinic bootRun` command
-    - script:
-      name: dev spring-petclinic
-      code: |
-        ./mvnw spring-boot:run
+#dev:
+#  steps:
+# A step that executes `spring-petclinic bootRun` command
+#    - script:
+#      name: dev spring-petclinic
+#     code: |
+#        ./mvnw spring-boot:run
 
 # Build definition
 build:
