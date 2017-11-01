@@ -4,6 +4,15 @@ box:
   ports:
     - "8081"
 
+# defining the dev pipeline
+dev:
+  steps:
+    # A step that executes `gradle bootRun` command
+    - script:
+      name: dev spring-petclinic
+      code: |
+        ./mvnw spring-boot:run
+        
 # Build definition
 build:
   # The steps that will be executed on build
