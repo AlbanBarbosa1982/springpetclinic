@@ -26,9 +26,9 @@ installgoss:
 deploy:
   steps:
     - internal/docker-push:
-        username: $albanbarbosa
-        password: $Japan35
-        tag: hey een wachtwoord
+        username: $USERNAME
+        password: $PASSWORD
+        tag: Hey ho lets go
         ports: "5000"
         repository: albanbarbosa/pet-clinic
         
