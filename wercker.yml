@@ -30,7 +30,7 @@ autoaddgoss:
     - script:
       name: autoadd port 8080
       code: |
-        goss autoadd port 8080
+        /usr/local/bin/goss autoadd port 8080
 
 # test goss
 testgoss:
@@ -39,6 +39,6 @@ testgoss:
     - script:
       name: test port 8080
       code: |
-        goss validate
+        /usr/local/bin/goss validate
 
 
