@@ -2,7 +2,7 @@
 box:
   id: openjdk
   ports:
-    - "8080"
+    - "5000"
 
 # defining the dev pipeline
 dev:
