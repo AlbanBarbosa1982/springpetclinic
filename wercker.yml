@@ -23,7 +23,7 @@ installgoss:
       code: |
         curl -L https://github.com/aelsabbahy/goss/releases/download/_VERSION_/goss-linux-amd64 -o /usr/local/bin/goss
 
-# change permissions
+# change permissions on goss
 permissions:
   steps:
     # A step changes permissions` 
