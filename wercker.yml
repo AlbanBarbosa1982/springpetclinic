@@ -21,4 +21,4 @@ build:
     - script:
         name: run spring-petclinic
         code: |
-          ./mvnw spring-boot:run --full-stacktrace -q --project-cache-dir=$WERCKER_CACHE_DIR build
+          ./mvnw spring-boot:run 
