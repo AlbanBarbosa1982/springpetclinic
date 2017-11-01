@@ -17,7 +17,7 @@ build:
 # install goss
 installgoss:
   steps:
-    # A step that installs goss` 
+    # A step that installs goss testframework` 
     - script:
       name: Install goss test framework
       code: |
