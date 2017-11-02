@@ -40,7 +40,6 @@ deploy-to-kubernetes:
   steps:    
     - kubectl:
         server: $KUBERNETES_MASTER
-        cwd: $WERCKER_ROOT/kubernetes/deployment
         username: $KUBERNETES_USERNAME
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
