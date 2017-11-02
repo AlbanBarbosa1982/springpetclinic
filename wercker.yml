@@ -34,7 +34,7 @@ push-to-hub:
         ports: "8080"
         repository: albanbarbosa/pet-clinic
         
-#deploy to k8s cluster on google cloud        
+#deploy to k8s cluster on google cloud hey ho lets go       
 deploy-to-kubernetes: 
 # Run this to create the rc and service
   steps:    
