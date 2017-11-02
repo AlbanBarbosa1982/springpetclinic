@@ -38,26 +38,26 @@ push-to-hub:
 deploy-to-kubernetes: 
 # Run this to create the rc and service
     
-  - kubectl:
+- kubectl:
+    server: $KUBERNETES_MASTER
+    username: $KUBERNETES_USERNAME
+    password: $KUBERNETES_PASSWORD
+    insecure-skip-tls-verify: true
+    command: ./mvnw spring-boot:run &
+
+- kubectl:
+     server: $KUBERNETES_MASTER
+     username: $KUBERNETES_USERNAME
+     password: $KUBERNETES_PASSWORD
+     insecure-skip-tls-verify: true
+     command: ./mvnw spring-boot:run &
+
+# Update the replica controller to $WERCKER_GIT_COMMIT
+ rolling-update:
+ - kubectl:
       server: $KUBERNETES_MASTER
       username: $KUBERNETES_USERNAME
       password: $KUBERNETES_PASSWORD
       insecure-skip-tls-verify: true
       command: ./mvnw spring-boot:run &
-
-  - kubectl:
-      server: $KUBERNETES_MASTER
-      username: $KUBERNETES_USERNAME
-      password: $KUBERNETES_PASSWORD
-      insecure-skip-tls-verify: true
-      command: ./mvnw spring-boot:run &
-
-    # Update the replica controller to $WERCKER_GIT_COMMIT
-  rolling-update:
-  - kubectl:
-       server: $KUBERNETES_MASTER
-       username: $KUBERNETES_USERNAME
-       password: $KUBERNETES_PASSWORD
-       insecure-skip-tls-verify: true
-       command: ./mvnw spring-boot:run &
-       image: https://hub.docker.com/r/albanbarbosa/pet-clinic/:$WERCKER_GIT_COMMIT
+      image: https://hub.docker.com/r/albanbarbosa/pet-clinic/:$WERCKER_GIT_COMMIT
