@@ -35,22 +35,19 @@ deploy:
         ports: "8080"
         repository: albanbarbosa/pet-clinic
         
-# deploy to k8s
-deploy-to-kubernetes:
+deploy-to-kubernetes: 
   box: openjdk
-  steps:
+  steps: 
     - bash-template
-    - script:
-        name: Prepare Kubernetes files
+    - 
+      script: 
         code: |
-          mkdir $WERCKER_OUTPUT_DIR/kubernetes
-          mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
- 
-     - kubectl:
-       name: deploy to kubernetes
-       server: $KUBERNETES_MASTER
-       insecure-skip-tls-verify: true
-       command: apply -f $WERCKER_OUTPUT_DIR/kubernetes/
-        
-
-
+            mkdir $WERCKER_OUTPUT_DIR/kubernetes
+            mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
+        name: "Prepare Kubernetes files"
+    - 
+      command: "apply -f $WERCKER_OUTPUT_DIR/kubernetes/"
+      insecure-skip-tls-verify: true
+      kubectl: ~
+      name: "deploy to kubernetes"
+      server: $KUBERNETES_MASTER
