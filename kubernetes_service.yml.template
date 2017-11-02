@@ -1,9 +1,9 @@
-kind: Service
+kind: Endpoints
 apiVersion: v1
 metadata:
   name: pet-clinic
-spec:
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 9376
+subsets:
+  - addresses:
+      - ip: 1.2.3.4
+    ports:
+      - port: 8081
