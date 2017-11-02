@@ -34,20 +34,30 @@ push-to-hub:
         ports: "8080"
         repository: albanbarbosa/pet-clinic
         
-#deploy to k8s cluster on google cloud        
-deploy-to-kubernetes: 
-  box: openjdk
-  steps: 
-    - bash-template
-    - 
-      script: 
-        code: |
-            mkdir $WERCKER_OUTPUT_DIR/kubernetes
-            mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
-        name: "Prepare Kubernetes files"
-    - 
-      command: "apply -f $WERCKER_OUTPUT_DIR/kubernetes/"
-      insecure-skip-tls-verify: true
-      kubectl: ~
-      name: "deploy to kubernetes"
+ #deploy to k8s cluster on google cloud        
+  deploy-to-kubernetes: 
+# Run this to create the rc and service
+    
+  - kubectl:
       server: $KUBERNETES_MASTER
+      username: $KUBERNETES_USERNAME
+      password: $KUBERNETES_PASSWORD
+      insecure-skip-tls-verify: true
+      command: ./mvnw spring-boot:run &
+
+  - kubectl:
+      server: $KUBERNETES_MASTER
+      username: $KUBERNETES_USERNAME
+      password: $KUBERNETES_PASSWORD
+      insecure-skip-tls-verify: true
+      command: ./mvnw spring-boot:run &
+
+    # Update the replica controller to $WERCKER_GIT_COMMIT
+  rolling-update:
+  - kubectl:
+       server: $KUBERNETES_MASTER
+       username: $KUBERNETES_USERNAME
+       password: $KUBERNETES_PASSWORD
+       insecure-skip-tls-verify: true
+       command: rolling-update cities
+        image: https://hub.docker.com/r/albanbarbosa/pet-clinic/:$WERCKER_GIT_COMMIT
