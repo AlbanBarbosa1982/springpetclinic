@@ -37,18 +37,18 @@ push-to-hub:
 #deploy to k8s cluster on google cloud        
 deploy-to-kubernetes: 
 # Run this to create the rc and service
-    
-- kubectl:
-    server: $KUBERNETES_MASTER
-    username: $KUBERNETES_USERNAME
-    password: $KUBERNETES_PASSWORD
-    insecure-skip-tls-verify: true
-    command: ./mvnw spring-boot:run &
+  steps:    
+    - kubectl:
+        server: $KUBERNETES_MASTER
+        username: $KUBERNETES_USERNAME
+        password: $KUBERNETES_PASSWORD
+        insecure-skip-tls-verify: true
+        command: ./mvnw spring-boot:run &
 
-- kubectl:
-     server: $KUBERNETES_MASTER
-     username: $KUBERNETES_USERNAME
-     password: $KUBERNETES_PASSWORD
-     insecure-skip-tls-verify: true
-     command: ./mvnw spring-boot:run &
+    - kubectl:
+        server: $KUBERNETES_MASTER
+        username: $KUBERNETES_USERNAME
+        password: $KUBERNETES_PASSWORD
+        insecure-skip-tls-verify: true
+        command: ./mvnw spring-boot:run &
 
