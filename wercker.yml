@@ -33,13 +33,13 @@ deploy:
         repository: albanbarbosa/pet-clinic
         
 # k8s
-k8s:
-  steps:
-    # A step that deploy to k8s 
-    - script:
-      name: deploy k8s
-      code: |
-        echo "deploy to k8s"
+#k8s:
+#  steps:
+# A step that deploy to k8s 
+#    - script:
+#      name: deploy k8s
+#      code: |
+#        echo "deploy to k8s"
 
 # deploy to k8s
 deploy-to-kubernetes:
@@ -63,8 +63,6 @@ deploy-to-kubernetes:
 - kubectl:
         name: deploy to kubernetes
         server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: apply -f $WERCKER_OUTPUT_DIR/kubernetes/
         
