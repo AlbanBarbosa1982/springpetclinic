@@ -26,11 +26,24 @@ installgoss:
 deploy:
   steps:
     - internal/docker-push:
+        entrypoint: bin/goss
+        cmd: 0.0.0.0 8080
         username: $USERNAME
         password: $PASSWORD
-        tag: Hey ho lets go
-        ports: "5000"
+        tag: $WERCKER_GIT_COMMIT
+        working-dir: $WERCKER_ROOT
+        ports: "8080"
         repository: albanbarbosa/pet-clinic
+        
+#- internal/docker-push:
+#        entrypoint: bin/get_ip
+#        cmd: 0.0.0.0 8080
+#        working-dir: $WERCKER_ROOT
+#        tag: $WERCKER_GIT_COMMIT
+#        ports: "8080"
+#        username: $DOCKERHUB_USERNAME
+#        password: $DOCKERHUB_PASSWORD
+#        repository: $DOCKERHUB_REPO
         
 # k8s
 #k8s:
