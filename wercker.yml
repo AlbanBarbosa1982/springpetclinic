@@ -44,7 +44,6 @@ deploy-to-kubernetes:
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: ./mvnw spring-boot:run &
-        image: hub.docker.com/r/albanbarbosa/pet-clinic/:$WERCKER_GIT_COMMIT
     
     - kubectl:
         server: $KUBERNETES_MASTER
@@ -52,7 +51,6 @@ deploy-to-kubernetes:
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: ./mvnw spring-boot:run &
-        image: hub.docker.com/r/albanbarbosa/pet-clinic/:$WERCKER_GIT_COMMIT
         
 
     
