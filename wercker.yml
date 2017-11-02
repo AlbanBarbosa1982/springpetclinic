@@ -44,11 +44,7 @@ deploy-to-kubernetes:
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: ./mvnw spring-boot:run &
+        ports: "8080"
 
-    - kubectl:
-        server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
-        insecure-skip-tls-verify: true
-        command: ./mvnw spring-boot:run &
+    
 
