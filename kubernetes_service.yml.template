@@ -1,5 +1,5 @@
 kind: Endpoints
-apiVersion: v1
+apiVersion: v3
 metadata:
   name: pet-clinic
 subsets:
