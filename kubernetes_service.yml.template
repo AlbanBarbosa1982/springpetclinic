@@ -1,8 +1,9 @@
-apiVersion: v3
 kind: Endpoints
-metadata: 
+apiVersion: v3
+metadata:
   name: pet-clinic
-subsets: 
-  - 
-    Endpoints: "1.2.3.4:8080"
-    
+subsets:
+  - addresses:
+      - ip: 1.2.3.4
+    ports:
+      - port: 9376
