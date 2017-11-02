@@ -23,7 +23,7 @@ installgoss:
       code: |
         curl -fsSL https://goss.rocks/install | sh 
         
-deploy:
+push-to-hub:
   steps:
     - internal/docker-push:
         username: $USERNAME
