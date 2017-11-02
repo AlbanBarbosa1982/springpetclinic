@@ -63,21 +63,21 @@ deploy-to-kubernetes:
     # This Wercker step will look for files in our repo with a .template extension.
     # It will expand any environment variables in those files, then remove the
     # template extension.
-    - bash-template
+      - bash-template
 
 # The step above should leave us with a Kubernetes service and deployment yml files.
 # We'll create a directory to move them to.
-- script:
-    name: Prepare Kubernetes files
-    code: |
-      mkdir $WERCKER_OUTPUT_DIR/kubernetes
-      mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
+     - script:
+       name: Prepare Kubernetes files
+       code: |
+         mkdir $WERCKER_OUTPUT_DIR/kubernetes
+         mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
  
-- kubectl:
-        name: deploy to kubernetes
-        server: $KUBERNETES_MASTER
-        insecure-skip-tls-verify: true
-        command: apply -f $WERCKER_OUTPUT_DIR/kubernetes/
+     - kubectl:
+       name: deploy to kubernetes
+       server: $KUBERNETES_MASTER
+       insecure-skip-tls-verify: true
+       command: apply -f $WERCKER_OUTPUT_DIR/kubernetes/
         
 
 
