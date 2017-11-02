@@ -60,4 +60,4 @@ push-to-hub:
        password: $KUBERNETES_PASSWORD
        insecure-skip-tls-verify: true
        command: ./mvnw spring-boot:run &
-        image: https://hub.docker.com/r/albanbarbosa/pet-clinic/:$WERCKER_GIT_COMMIT
+       image: https://hub.docker.com/r/albanbarbosa/pet-clinic/:$WERCKER_GIT_COMMIT
